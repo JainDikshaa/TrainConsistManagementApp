@@ -5,16 +5,24 @@ public class Main {
 
         System.out.println("=== Train Consist Management App ===");
 
-        // HashSet for unique bogie IDs
-        Set<String> bogieIds = new HashSet<>();
+        // LinkedList for train consist
+        LinkedList<String> train = new LinkedList<>();
 
-        // Add bogie IDs
-        bogieIds.add("B1");
-        bogieIds.add("B2");
-        bogieIds.add("B3");
-        bogieIds.add("B2"); // duplicate
+        // Add bogies
+        train.add("Engine");
+        train.add("Sleeper");
+        train.add("AC");
+        train.add("Cargo");
+        train.add("Guard");
 
-        // Display unique IDs
-        System.out.println("Unique Bogie IDs: " + bogieIds);
+        // Insert Pantry Car at position 2 (index 1)
+        train.add(1, "Pantry Car");
+
+        // Remove first and last
+        train.removeFirst();
+        train.removeLast();
+
+        // Display final consist
+        System.out.println("Final Train Consist: " + train);
     }
 }
