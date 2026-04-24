@@ -1,22 +1,27 @@
 import java.util.*;
+import java.util.stream.*;
 
 public class Main {
     public static void main(String[] args) {
 
         System.out.println("=== Train Consist Management App ===");
 
-        // HashMap: Bogie -> Capacity
-        HashMap<String, Integer> capacityMap = new HashMap<>();
+        List<Bogie> list = new ArrayList<>();
 
-        // Insert values
-        capacityMap.put("Sleeper", 72);
-        capacityMap.put("AC Chair", 60);
-        capacityMap.put("First Class", 40);
+        // Same data as UC7
+        list.add(new Bogie("Sleeper", 72));
+        list.add(new Bogie("AC Chair", 60));
+        list.add(new Bogie("First Class", 40));
 
-        // Iterate using entrySet()
-        System.out.println("Bogie Capacity Details:");
-        for (Map.Entry<String, Integer> entry : capacityMap.entrySet()) {
-            System.out.println(entry.getKey() + " -> " + entry.getValue());
+        // Stream + filter
+        List<Bogie> filtered = list.stream()
+                .filter(b -> b.capacity > 60)
+                .toList();
+
+        // Display
+        System.out.println("Filtered Bogies (capacity > 60):");
+        for (Bogie b : filtered) {
+            System.out.println(b);
         }
     }
 }
