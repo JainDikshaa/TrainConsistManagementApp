@@ -3,16 +3,27 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-        // Welcome message
         System.out.println("=== Train Consist Management App ===");
 
-        // Initialize empty train consist (ArrayList)
-        List<String> trainConsist = new ArrayList<>();
+        // Create ArrayList for passenger bogies
+        ArrayList<String> bogies = new ArrayList<>();
 
-        // Display initial bogie count
-        System.out.println("Initial bogie count: " + trainConsist.size());
+        // Add bogies
+        bogies.add("Sleeper");
+        bogies.add("AC Chair");
+        bogies.add("First Class");
 
-        // Program continues...
-        System.out.println("System ready...");
+        // Display after insertion
+        System.out.println("After adding bogies: " + bogies);
+
+        // Remove one bogie
+        bogies.remove("AC Chair");
+
+        // Check if Sleeper exists
+        boolean exists = bogies.contains("Sleeper");
+        System.out.println("Does Sleeper exist? " + exists);
+
+        // Final list
+        System.out.println("Final bogie list: " + bogies);
     }
 }
