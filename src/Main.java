@@ -5,24 +5,19 @@ public class Main {
 
         System.out.println("=== Train Consist Management App ===");
 
-        // LinkedList for train consist
-        LinkedList<String> train = new LinkedList<>();
+        // LinkedHashSet (unique + maintains order)
+        LinkedHashSet<String> train = new LinkedHashSet<>();
 
         // Add bogies
         train.add("Engine");
         train.add("Sleeper");
-        train.add("AC");
         train.add("Cargo");
         train.add("Guard");
 
-        // Insert Pantry Car at position 2 (index 1)
-        train.add(1, "Pantry Car");
+        // Attempt duplicate
+        train.add("Sleeper"); // will be ignored
 
-        // Remove first and last
-        train.removeFirst();
-        train.removeLast();
-
-        // Display final consist
-        System.out.println("Final Train Consist: " + train);
+        // Display formation
+        System.out.println("Train Formation: " + train);
     }
 }
