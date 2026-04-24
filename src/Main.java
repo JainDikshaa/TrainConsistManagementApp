@@ -8,20 +8,21 @@ public class Main {
 
         List<Bogie> list = new ArrayList<>();
 
-        // Same data as UC7
-        list.add(new Bogie("Sleeper", 72));
-        list.add(new Bogie("AC Chair", 60));
-        list.add(new Bogie("First Class", 40));
+        // Add bogies with type
+        list.add(new Bogie("Sleeper", 72, "Passenger"));
+        list.add(new Bogie("AC Chair", 60, "Passenger"));
+        list.add(new Bogie("Cargo", 100, "Goods"));
+        list.add(new Bogie("Parcel", 80, "Goods"));
 
-        // Stream + filter
-        List<Bogie> filtered = list.stream()
-                .filter(b -> b.capacity > 60)
-                .toList();
+        // Group by type
+        Map<String, List<Bogie>> grouped =
+                list.stream()
+                        .collect(Collectors.groupingBy(b -> b.type));
 
-        // Display
-        System.out.println("Filtered Bogies (capacity > 60):");
-        for (Bogie b : filtered) {
-            System.out.println(b);
+        // Display grouped data
+        System.out.println("Grouped Bogies:");
+        for (String key : grouped.keySet()) {
+            System.out.println(key + " -> " + grouped.get(key));
         }
     }
 }

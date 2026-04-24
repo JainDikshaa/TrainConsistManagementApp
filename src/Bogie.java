@@ -1,24 +1,17 @@
-import java.util.*;
+public class Bogie {
 
-public class Main {
-    public static void main(String[] args) {
+    String name;
+    int capacity;
+    String type;
 
-        System.out.println("=== Train Consist Management App ===");
+    public Bogie(String name, int capacity, String type) {
+        this.name = name;
+        this.capacity = capacity;
+        this.type = type;
+    }
 
-        List<Bogie> list = new ArrayList<>();
-
-        // Add bogies
-        list.add(new Bogie("Sleeper", 72));
-        list.add(new Bogie("AC Chair", 60));
-        list.add(new Bogie("First Class", 40));
-
-        // Sort using Comparator
-        list.sort(Comparator.comparingInt(b -> b.capacity));
-
-        // Display sorted list
-        System.out.println("Sorted Bogies by Capacity:");
-        for (Bogie b : list) {
-            System.out.println(b);
-        }
+    @Override
+    public String toString() {
+        return name + " - " + capacity + " - " + type;
     }
 }
