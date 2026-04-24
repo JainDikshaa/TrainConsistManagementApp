@@ -5,19 +5,16 @@ public class Main {
 
         System.out.println("=== Train Consist Management App ===");
 
-        // LinkedHashSet (unique + maintains order)
-        LinkedHashSet<String> train = new LinkedHashSet<>();
+        LinkedHashSet<String> bogies = new LinkedHashSet<>();
 
-        // Add bogies
-        train.add("Engine");
-        train.add("Sleeper");
-        train.add("Cargo");
-        train.add("Guard");
+        bogies.add("Engine");
+        bogies.add("Sleeper");
+        bogies.add("Cargo");
+        bogies.add("Guard");
 
-        // Attempt duplicate
-        train.add("Sleeper"); // will be ignored
+        // duplicate
+        bogies.add("Sleeper");
 
-        // Display formation
-        System.out.println("Train Formation: " + train);
+        System.out.println("Train Formation: " + bogies);
     }
 }
